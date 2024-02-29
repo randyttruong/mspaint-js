@@ -1,22 +1,30 @@
 import Image from "next/image";
 import Link from 'next/link';
 import NextLink from 'next/link'; 
-import Gallery from './pages/gallery'; 
+// import Gallery from './pages/gallery'; 
 import { Button } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react'
+
 
 export default function Home() {
   return (
     <>
-    <h1>
-      "Hello"
-    </h1>
-    <Gallery />
-    <Link href='/pages/draw'> Click here pls</Link> 
-    <Button
+      <ChakraProvider>
+        <h1>
+          "Hello"
+        </h1>
+      {/* <Gallery /> */}
+        
+        <li>
+          <Link href="/splash"> Click here pls</Link> 
+
+        </li>
+      </ChakraProvider>
+    {/* <Button
     variant='ghost'
     as = { NextLink } 
-    href='/draw'> 
-      </Button> 
+    href='/pages/splash'> 
+      </Button>  */}
     </>
   );
 }
