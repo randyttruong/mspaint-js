@@ -23,12 +23,21 @@ export default function Draw() {
                 ctx.lineWidth = 5;
                 ctx.lineCap = 'round';
                 ctx.strokeStyle = 'rgb(0, 0, 0)';
-                ctx.lineTo((e.clientX -(canvas.offsetLeft ))/2, (e.clientY - (canvas.offsetTop))/2);
+                // ctx.canvas.width = window.innerWidth;
+                // ctx.canvas.height = window.innerHeight;
 
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                console.log(x, y)
+                // ctx.lineTo((e.clientX -(canvas.offsetLeft )) , (e.clientY - (canvas.offsetTop)));
+                // ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.lineTo(x, y);
                 ctx.stroke();
                 ctx.beginPath();
-                ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-
+                // ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+                // ctx.moveTo(e.offsetX, e.offsetY);
+                ctx.moveTo(x,y);
             }
 
             canvas.addEventListener('mousedown', startPosition);
@@ -48,7 +57,7 @@ export default function Draw() {
                 {/* Add header content if needed */}
             </header>
             <canvas id="myCanvas" style={{ border: '1px solid #000000' }}></canvas>
-         
+            <toolbar>Hello</toolbar>
         </div>
     );
 }
