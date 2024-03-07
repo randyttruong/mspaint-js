@@ -15,6 +15,9 @@ import "./DrawingArea.css"
  * 
  */
 
+
+
+
 const DrawingArea = ({onClearLines, clearLines}) => {
 
     const [lines, setLines] = useState([]);
@@ -57,14 +60,19 @@ const DrawingArea = ({onClearLines, clearLines}) => {
     };
 
     return (
-        <div className=" text-center text-dark">
+        <div className="text-center text-dark">
             <Stage
-                width={600}
-                height={600}
+                // width={600}
+                width={window.innerWidth}
+                // height={600}
+                height={window.innerHeight}
+       
                 onMouseDown={handleMouseDown}
                 onMousemove={handleMouseMove}
                 onMouseup={handleMouseUp}
                 className="canvas-stage"
+                // className='canvas-format'
+                // style={{ margin: '0 auto', display: 'block' }} // Centering the Stage
             >
                 <Layer>
                     {lines.map((line, i) => (
