@@ -2,7 +2,7 @@ import { React } from 'react';
 import { Stage, Layer, Line } from 'react-konva';
 import { useEffect, useState, useRef } from 'react';
 
-const DrawingArea = ({onClearLines, clearLines, strokeColor}) => {
+const DrawingArea = ({onClearLines, clearLines}) => {
 
     const [lines, setLines] = useState([]);
     const isDrawing = useRef(false);
@@ -44,7 +44,7 @@ const DrawingArea = ({onClearLines, clearLines, strokeColor}) => {
     };
 
     return (
-        <div className="text-center text-dark">
+        <div className=" text-center text-dark">
             <Stage
                 width={600}
                 height={600}
@@ -58,7 +58,7 @@ const DrawingArea = ({onClearLines, clearLines, strokeColor}) => {
                         <Line
                         key={i}
                         points={line.points}
-                        stroke={strokeColor}
+                        stroke="#df4b26"
                         strokeWidth={2}
                         tension={0.5}
                         lineCap="round"
