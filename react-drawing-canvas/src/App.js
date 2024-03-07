@@ -4,12 +4,15 @@ import DrawingArea from './DrawingArea';
 
 function App() {
   return (
-    <>
-      <h1> Drawing Area</h1>
+    <peepee>
+      <header> Drawing Area</header>
       <div className="App drawing-area">
-      <DrawingArea />
+        <DrawingArea strokeColor="#000000"/>
       </div>
-    </>
+      <toolbar>
+        test
+      </toolbar>
+    </peepee>
   );
 }
 
