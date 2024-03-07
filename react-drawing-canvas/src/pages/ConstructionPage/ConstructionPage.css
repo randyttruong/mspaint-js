@@ -1,0 +1,60 @@
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+} 
+
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+}
+
+.construction-container { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.header { 
+    font-size: 72px;
+    background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientAnimation 10s ease infinite;
+    background-size: 100% 100%;
+    text-align: center
+}
+
+.landing-body-button-container { 
+    width: 25%;
+    height: 100%;
+    margin: 4px;
+}
+
+.landing-body-button { 
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    border-style: solid; 
+}
+
+.landing-body-button:hover { 
+    background: black;
+    color: white;
+    animation: fadeIn 0.5s ease-out;
+}
+

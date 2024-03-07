@@ -1,6 +1,19 @@
 import { React } from 'react';
 import { Stage, Layer, Line } from 'react-konva';
 import { useEffect, useState, useRef } from 'react';
+import "./DrawingArea.css"
+
+/* 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 
 const DrawingArea = ({onClearLines, clearLines}) => {
 
