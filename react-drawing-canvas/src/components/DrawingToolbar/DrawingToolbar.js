@@ -6,7 +6,7 @@ import eraserSrc from "../../resources/eraserButton2.svg";
 import { ChromePicker } from 'react-color'; // Import the color picker component
 
 
-function PencilButton() { 
+function PencilButton({onClick}) { 
     const [isActive, setIsActive] = useState(false); 
 
     return (
@@ -23,7 +23,7 @@ function PencilButton() {
     );
 }
 
-function EraserButton() { 
+function EraserButton({onClick}) { 
     const [isActive, setIsActive] = useState(false); 
 
     return (
