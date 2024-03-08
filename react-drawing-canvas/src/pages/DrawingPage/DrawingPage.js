@@ -54,17 +54,17 @@ function MainMenuBotton(props) {
 
 function DrawingPage() { 
     return (
-        <>
-            <div className="drawing-page-header">
-                <MainMenuBotton route={'/'} val={'Main Menu'}></MainMenuBotton>
-            </div>
-            <div className='drawing-page-container'>
-                <DrawingUI /> 
-                <div className='drawing-area-container'>
-                    <DrawingArea />
-                </div>
-            </div>
-        </>
+      <>
+        <div className="drawing-page-header">
+          <MainMenuBotton route={"/"} val={"Main Menu"}></MainMenuBotton>
+        </div>
+        <div className="drawing-page-container">
+            <DrawingUI />
+          <div className="drawing-area-container">
+            <DrawingArea />
+          </div>
+        </div>
+      </>
     );
 }
 
