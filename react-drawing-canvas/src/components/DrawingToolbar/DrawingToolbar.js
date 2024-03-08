@@ -1,6 +1,8 @@
-import React from "react";
-import pencilSrc from "../../../public/pencilButton.svg";
-import eraserSrc from "../../../public/eraserButton.svg";
+import React, { useState } from 'react';
+// import pencilSrc from "../../../public/pencilButton.svg";
+// import eraserSrc from "../../../public/eraserButton.svg";
+import pencilSrc from "../../resources/pencilButton.svg";
+import eraserSrc from "../../resources/eraserButton2.svg";
 import { ChromePicker } from 'react-color'; // Import the color picker component
 
 
@@ -9,8 +11,13 @@ function PencilButton() {
 
     return (
         <>
-            <div className="button-container">
-                <img className="icon" src= { pencilSrc } /> 
+            {/* <div className="button-container"> */}
+            <div className={`button-container ${isActive ? 'active' : ''}`} onClick={() => setIsActive(!isActive)}>
+                {/* <img className="icon" src= { pencilSrc } />  */}
+                <img src= { pencilSrc } 
+                    width = "40px"
+                    height = "40 px"/> 
+
             </div> 
         </> 
     );
@@ -21,10 +28,25 @@ function EraserButton() {
 
     return (
         <>
-            <div className="button-container">
-                <img className="icon" src= { eraserSrc } /> 
+            {/* <div className="button-container"> */}
+            <div className={`button-container ${isActive ? 'active' : ''}`} onClick={() => setIsActive(!isActive)}>
+                {/* <img className="icon" src= { eraserSrc } />  */}
+                <img src= {eraserSrc } 
+                    width = "40px"
+                    height = "40px"/>
+
             </div> 
         </> 
+    );
+}
+
+function ColorPickerButton({ color, onChangeComplete }) {
+    const [isActive, setIsActive] = useState(false); 
+
+    return (
+        <div className={`button-container ${isActive ? 'active' : ''}`} onClick={() => setIsActive(!isActive)}>
+            <ChromePicker color={color} onChangeComplete={onChangeComplete} />
+        </div>
     );
 }
 
@@ -38,14 +60,15 @@ function DrawingToolbar() {
     return (
         <>
             <div className="toolbar-container">
-                <DrawingToolbarButton icon={ pencilSrc } />
+                {/* <DrawingToolbarButton icon={ pencilSrc } />
                 <DrawingToolbarButton icon={ eraserSrc } />
 
-                {/* I'm not sure if the color picker will work */}
                 <div className="color-picker-container">
                     <ChromePicker color={color} onChangeComplete={handleChangeComplete} />
-                </div>
-                
+                </div> */}
+                <PencilButton />
+                <EraserButton />
+                <ColorPickerButton color={color} onChangeComplete={handleChangeComplete} />
             </div>
         </>
     );

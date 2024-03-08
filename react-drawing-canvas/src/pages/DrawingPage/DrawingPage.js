@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import "./DrawingPage.css"
 import DrawingArea from "../../components/DrawingArea/DrawingArea"
 import { Link } from "react-router-dom"
+import DrawingToolbar from '../../components/DrawingToolbar/DrawingToolbar'
 
 /* 
  * 
@@ -10,6 +11,10 @@ import { Link } from "react-router-dom"
 function DrawingUI() { 
     return (
         <>
+            <div className="drawing-ui-container">
+                <DrawingToolbar /> {/* Render the DrawingToolbar component */}
+                {/* Add any other UI components related to drawing here */}
+            </div>
         </>
     );
 }
