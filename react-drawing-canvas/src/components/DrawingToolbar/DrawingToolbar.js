@@ -8,13 +8,14 @@ import { ChromePicker } from 'react-color'; // Import the color picker component
 import "./DrawingToolbar.css";
 
 
-function PencilButton({onClick}) { 
-    const [isActive, setIsActive] = useState(false); 
+
+function PencilButton({onClick, isActive}) { 
 
     return (
         <>
             {/* <div className="button-container"> */}
             <div className={`button-container ${isActive ? 'active' : ''}`} onClick={onClick}>
+    
                 {/* <img className="icon" src= { pencilSrc } />  */}
                 <img className="icon" src= { pencilSrc } 
                     width = "30px"
@@ -25,9 +26,7 @@ function PencilButton({onClick}) {
     );
 }
 
-function PaletteButton({onClick}) { 
-    const [isActive, setIsActive] = useState(false); 
-
+function PaletteButton({onClick, isActive}) { 
     return (
         <>
             {/* <div className="button-container"> */}
@@ -42,8 +41,7 @@ function PaletteButton({onClick}) {
     );
 }
 
-function EraserButton({onClick}) { 
-    const [isActive, setIsActive] = useState(false); 
+function EraserButton({onClick, isActive}) { 
 
     return (
         <>
@@ -67,13 +65,17 @@ function ColorPickerButton({ color, onChangeComplete }) {
     );
 }
 
-function DrawingToolbar() {
+function DrawingToolbar(props) {
+
+    const {setSelectedTool, setBrushColor} = props;
+
     const [color, setColor] = useState('#000000'); // State to track the selected color
 
     const [activeButton, setActiveButton] = useState(null);
 
     const handleChangeComplete = (newColor) => {
         setColor(newColor.hex); // Update the selected color
+        setBrushColor(newColor.hex);
     };
 
     const handleButtonClick = (buttonName) => { 
@@ -87,10 +89,12 @@ function DrawingToolbar() {
 
     const handlePenClick = () => { 
         handleButtonClick('pencil');
+        setSelectedTool("pencil")
     }
 
     const handleEraserClick = () => {
         handleButtonClick('eraser');
+        setSelectedTool("eraser");
     }
 
     const handlePaletteClick = () => {

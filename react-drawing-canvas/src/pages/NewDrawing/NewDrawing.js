@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import "./NewDrawing.css"
+import { useNavigate, useLocation } from "react-router-dom"
 
 /* 
  * @component NewDrawingHeader
@@ -28,6 +29,8 @@ function NewDrawingHeader(props) {
  */
 function NewDrawingForm(props) { 
 
+  const navigate = useNavigate();
+
     const [formData, setFormData] = useState("");
    
     function handleChange(event) { 
@@ -36,6 +39,8 @@ function NewDrawingForm(props) {
 
     function handleSubmit(event) { 
         event.preventDefault();
+
+        navigate("/DrawingPage");
     }
 
     return (

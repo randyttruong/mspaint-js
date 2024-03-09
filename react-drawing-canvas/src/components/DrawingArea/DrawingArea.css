@@ -3,4 +3,11 @@
     margin-left: auto;
     margin-right: auto;
     border: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.drawingArea { 
+    cursor: crosshair;
 }

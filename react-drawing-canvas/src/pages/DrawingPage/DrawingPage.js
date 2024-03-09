@@ -8,11 +8,12 @@ import DrawingToolbar from '../../components/DrawingToolbar/DrawingToolbar'
  * 
  *
  */
-function DrawingUI() { 
+function DrawingUI(props) { 
+    const { setSelectedTool, setBrushColor } = props; 
     return (
         <>
             <div className="drawing-ui-container">
-                <DrawingToolbar /> {/* Render the DrawingToolbar component */}
+                <DrawingToolbar setSelectedTool={setSelectedTool} setBrushColor={setBrushColor} /> {/* Render the DrawingToolbar component */}
                 {/* Add any other UI components related to drawing here */}
             </div>
         </>
@@ -35,13 +36,13 @@ function MainMenuBotton(props) {
     const {route, val } = props;
     return (
         <>
-            <Link to={route} className="main-menu-button-container">
-                <button className="main-menu-button">
-                    <div className="container">
-                        <h2>{val}</h2>
-                    </div>
-                </button>
-            </Link>
+                <Link to={route} className="main-menu-button-container">
+                    <button className="main-menu-button">
+                        <div className="container">
+                            <h2 className="text">{val}</h2>
+                        </div>
+                    </button>
+                </Link>
         </>
     );
 }
@@ -53,17 +54,26 @@ function MainMenuBotton(props) {
 */
 
 function DrawingPage() { 
+    const [selectedTool, setSelectedTool] =  useState(null);
+    const [brushColor, setBrushColor] = useState(null);
+
+    const handleSelectedTool = (e) => {  
+        setSelectedTool(e); 
+    }
+    const handleBrushColor = (e) => {
+        setBrushColor(e);
+    }
+
     return (
       <>
-        <div className="drawing-page-header">
-          <MainMenuBotton route={"/"} val={"Main Menu"}></MainMenuBotton>
-        </div>
-        <div className="drawing-page-container">
-            <DrawingUI />
+        {/* <div className="drawing-page-container"> */}
+            <MainMenuBotton route={"/"} val={"Home"}></MainMenuBotton>
+
+            <DrawingUI setSelectedTool={handleSelectedTool} setBrushColor={handleBrushColor}/>
           <div className="drawing-area-container">
-            <DrawingArea />
+            <DrawingArea selectedTool={selectedTool} color={brushColor}/>
           </div>
-        </div>
+        {/* </div> */}
       </>
     );
 }
