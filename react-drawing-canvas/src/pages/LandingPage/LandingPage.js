@@ -126,7 +126,10 @@ function LandingPage(props) {
           title={"Getting Started"}
         >
           <p>Welcome to js-paint! If you're new, please select the 
-            "Gallery" button in order to create your first drawing. 
+            "Create New Drawing" in order to create a new drawing. 
+          </p>
+          <p>
+            Otherwise, select "Free Draw" to get into a new drawing.
           </p>
         </Dialog>
           <LandingHeader />

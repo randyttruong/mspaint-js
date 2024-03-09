@@ -43,6 +43,10 @@ function NewDrawingForm(props) {
         navigate("/DrawingPage");
     }
 
+    function goHome() { 
+        navigate("/"); 
+    }
+
     return (
       <>
         <div className="form-container">
@@ -58,8 +62,12 @@ function NewDrawingForm(props) {
               value={formData.name}
               onChange={handleChange}
             />
-            <button type="submit" className="submit-button"> Create </button>
+            <div className="whitespace" />
+            <button type="submit" className="submit-button"> 
+            <h2> Create </h2> </button>
           </form>
+          <button className="submit-button" onClick={goHome}> 
+            <h2> Home </h2> </button>
         </div>
       </>
     );
