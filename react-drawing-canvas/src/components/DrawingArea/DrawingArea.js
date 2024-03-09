@@ -17,7 +17,10 @@ import "./DrawingArea.css"
  * 
  */
 
-const DrawingArea = ({onClearLines, clearLines, selectedTool, color}) => {
+const DrawingArea = ({onClearLines, 
+        clearLines, 
+        selectedTool, 
+        color}) => {
     
     if (!color) {
         color = "#000000"
@@ -35,6 +38,8 @@ const DrawingArea = ({onClearLines, clearLines, selectedTool, color}) => {
         const pos = e.target.getStage().getPointerPosition();
         if (selectedTool === "eraser"){
             color = "#ffffff";
+        } else if (selectedTool === "pencil" || selectedTool === "palette") {
+            color = color;
         }
         setLines([...lines, { points: [pos.x, pos.y], color }]);
     };

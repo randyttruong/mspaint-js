@@ -99,6 +99,7 @@ function DrawingToolbar(props) {
 
     const handlePaletteClick = () => {
         handleButtonClick('palette');
+        setSelectedTool("palette");
     }
 
     return (

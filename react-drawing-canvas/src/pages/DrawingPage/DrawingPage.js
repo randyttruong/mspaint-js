@@ -13,7 +13,9 @@ function DrawingUI(props) {
     return (
         <>
             <div className="drawing-ui-container">
-                <DrawingToolbar setSelectedTool={setSelectedTool} setBrushColor={setBrushColor} /> {/* Render the DrawingToolbar component */}
+                <DrawingToolbar 
+                    setSelectedTool={setSelectedTool} 
+                    setBrushColor={setBrushColor} /> {/* Render the DrawingToolbar component */}
                 {/* Add any other UI components related to drawing here */}
             </div>
         </>
@@ -63,7 +65,6 @@ function DrawingPage() {
     console.log("pain")
     const [selectedTool, setSelectedTool] =  useState(null);
     const [brushColor, setBrushColor] = useState(null);
-    const [isDrawingEnabled, setIsDrawingEnabled] = useState(false);
 
     const handleSelectedTool = (e) => {  
         setSelectedTool(e); 
